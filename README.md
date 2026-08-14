@@ -17,33 +17,39 @@ Scans structured configs (.mcp/config.json, CrewAI, AutoGen) alongside prompt in
 
 **Multi-Format Output:** Supports CLI Terminal output, raw JSON, SARIF v2.1.0 (for GitHub Code Scanning), and PR Markdown reports.
 
-Installation
+**Installation**
 
 git clone https://github.com/your-org/agentic-posture-engine.git
+
 cd agentic-posture-engine
+
 pip install .
 
 CLI Usage
+
 Interactive Setup
+
 Initialize policy files and set up local pre-commit hooks:
 
 ape init
 
-Basic Scan
+**Basic Scan**
 Scan a single configuration, prompt, directory, or source code file:
 
 ape scan agent_config.yml
 
-Auto-Remediation
+**Auto-Remediation**
 Automatically fix fixable security violations in-place:  
+
 ape scan agent_config.yml --fix
 
-PR Branch Capability Diff
+**PR Branch Capability Diff**
 Compare a PR branch file against its base branch equivalent to detect newly granted permissions:
 
 ape scan agent_config.yml --base base_agent_config.yml
 
-Multi-Format Output Reports
+**Multi-Format Output Reports**
+
 Output SARIF for the GitHub Security tab, JSON for scripting, and Markdown for PR comments:
 
 ape scan .mcp/config.json \
@@ -52,7 +58,8 @@ ape scan .mcp/config.json \
   --output-json ape_dump.json \
   --output-markdown ape_report.md
 
-GitHub Action Integration
+**GitHub Action Integration**
+
 Add APE to your repository as a workflow inside .github/workflows/ape-posture.yml:
 name: Agentic Security Posture Check
 
@@ -87,14 +94,14 @@ jobs:
             --output-markdown ape_report.md
 
 
-Default Security Rules
+**Default Security Rules**
 Rule ID   Severity    Scope   Description
 
 
 
 
 
-Customizing Policy (.ape-policy.yml)
+**Customizing Policy**(.ape-policy.yml)
 Override default rule categories and framework aliases by providing a custom policy file:
 
 destructive_tools:
@@ -116,12 +123,16 @@ field_aliases:
   sandboxed:
     - "containerized"
 
-Suppressing Findings
-suppress rules by adding inline comment markers or configuration keys:  In YAML/JSON Agent Configs  
+**Suppressing Findings**
+
+suppress rules by adding inline comment markers or configuration keys:
+
 
 In YAML/JSON Agent Configs
+
 ape_ignore:
   - "APE-005"
+
 In Prompts and Code
 
 # ape:disable APE-201
