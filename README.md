@@ -31,27 +31,22 @@ Interactive Setup
 
 Initialize policy files and set up local pre-commit hooks:
 
-```bash
 ape init
 
 ### Basic Scan
 Scan a single configuration, prompt, directory, or source code file:
 
-```bash
 ape scan agent_config.yml
 
 ### Auto-Remediation
 Automatically fix fixable security violations in-place: 
 
-```bash
 
 ape scan agent_config.yml --fix
 
 **PR Branch Capability Diff**
 Compare a PR branch file against its base branch equivalent to detect newly granted permissions:
 
-
-```bash
 ape scan agent_config.yml --base base_agent_config.yml
 
 
@@ -59,14 +54,13 @@ ape scan agent_config.yml --base base_agent_config.yml
 
 Generate SARIF reports for GitHub Security tab integration, JSON dumps for custom scripting, and Markdown reports for PR comments:
 
-```bash
 ape scan .mcp/config.json \
   --policy .ape-policy.yml \
   --output-sarif ape_results.sarif \
   --output-json ape_dump.json \
   --output-markdown ape_report.md
 
-**GitHub Action Integration**
+### GitHub Action Integration
 
 Add APE to your repository as a workflow inside .github/workflows/ape-posture.yml:
 
@@ -125,7 +119,7 @@ jobs:
 
 
 
-**Customizing Policy**(.ape-policy.yml)
+###Customizing Policy(.ape-policy.yml)
 Override default rule categories and framework aliases by providing a custom policy file:
 
 
