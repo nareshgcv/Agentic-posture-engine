@@ -70,22 +70,21 @@ jobs:
           sarif_output: "ape_results.sarif"
           markdown_output: "ape_report.md”
 
-Default Security RulesRuleID SeverityScopeDescription
-APE-001CRITICALConfigDestructive tools (exec_shell, file_write) missing require_human_approval.
-APE-002CRITICALConfigShell tool execution is not marked sandboxed: true.
-APE-003HIGHConfigFinancial/Payout tool lacking max_limit parameter.
-APE-004HIGHConfigDatabase write tool lacking allowed_tables whitelist or read_only flag.
+Default Security RulesRuleID SeverityScope Description
+APE-001 CRITICAL ConfigDestructive tools (exec_shell, file_write) missing require_human_approval.
+APE-002 CRITICAL ConfigShell tool execution is not marked sandboxed: true.
+APE-003 HIGH ConfigFinancial/Payout tool lacking max_limit parameter.
+APE-004 HIGH ConfigDatabase write tool lacking allowed_tables whitelist or read_only flag.
 
-APE-005HIGHConfigAgent missing bounded max_steps iteration limits.
+APE-005 HIGH ConfigAgent missing bounded max_steps iteration limits.
 
-APE-006CRITICALConfigSub-agent spawning tool lacks human approval flag.
+APE-006 CRITICAL ConfigSub-agent spawning tool lacks human approval flag.
 
-APE-101CRITICALPromptInstruction explicitly waives or overrides security guardrails.
+APE-101 CRITICAL PromptInstruction explicitly waives or overrides security guardrails.
 
-APE-102HIGHPromptPrompt grants unconstrained shell or terminal execution authority.
-APE-201CRITICALASTDynamic Python shell call (os.system, subprocess.run, eval).APE-202CRITICALAST
-
-Customizing Policy (.ape-policy.yml)
+APE-102 HIGH PromptPrompt grants unconstrained shell or terminal execution authority.
+APE-201 CRITICAL ASTDynamic Python shell call (os.system, subprocess.run, eval).
+APE-202 CRITICAL ASTCustomizing Policy (.ape-policy.yml)
 Override default rule categories and framework aliases by providing a custom policy file
 
 destructive_tools:
