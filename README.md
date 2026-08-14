@@ -18,7 +18,7 @@ Scans structured configs (.mcp/config.json, CrewAI, AutoGen) alongside prompt in
 **Multi-Format Output:** Supports CLI Terminal output, raw JSON, SARIF v2.1.0 (for GitHub Code Scanning), and PR Markdown reports.
 
 ### Installation
-
+```bash
 [git clone https://github.com/nareshgcv/Agentic-posture-engine.git]
 
 cd agentic-posture-engine
@@ -31,21 +31,27 @@ Interactive Setup
 
 Initialize policy files and set up local pre-commit hooks:
 
+```bash
 ape init
 
 ### Basic Scan
 Scan a single configuration, prompt, directory, or source code file:
 
+```bash
 ape scan agent_config.yml
 
 ### Auto-Remediation
-Automatically fix fixable security violations in-place:  
+Automatically fix fixable security violations in-place: 
+
+```bash
 
 ape scan agent_config.yml --fix
 
 **PR Branch Capability Diff**
 Compare a PR branch file against its base branch equivalent to detect newly granted permissions:
 
+
+```bash
 ape scan agent_config.yml --base base_agent_config.yml
 
 
