@@ -60,6 +60,48 @@ ape scan .mcp/config.json \
   --output-json ape_dump.json \
   --output-markdown ape_report.md
 
+### Project structure
+
+agentic-posture-engine/
+├── .github/
+│   └── workflows/
+│       └── ape-posture.yml          # Optional: GitHub Actions PR scan workflow
+├── src/
+│   └── ape_linter/                  # Core Python package
+│       ├── __init__.py              # Package exports & version
+│       ├── cli.py                   # Main CLI entrypoint (init/scan/check/fix)
+│       ├── core.py                  # SecurityViolation, Capability & Blast Radius models
+│       ├── policy.py                # Policy loader, tool lists & aliases
+│       ├── discovery.py             # File auto-discovery engine
+│       ├── fixer.py                 # Auto-Remediation Engine (--fix)
+│       ├── init_wizard.py           # Interactive onboarding wizard (ape init)
+│       ├── scanners/                # Modular scanners
+│       │   ├── __init__.py
+│       │   ├── config_scanner.py    # MCP, YAML, JSON scanner
+│       │   ├── instruction_scanner.py # .cursorrules & system prompts
+│       │   └── ast_scanner.py       # Python AST & JS/TS scanner
+│       └── reporters/               # Report generators
+│           ├── __init__.py
+│           ├── markdown.py          # PR Markdown & Blast Radius generator
+│           ├── sarif.py             # SARIF v2.1.0 generator
+│           └── json_reporter.py     # JSON output generator
+|
+│  
+├── tests/                           Pytest suite
+│   ├── conftest.py
+│   ├── test_cli.py
+│   ├── test_config_rules.py
+│   ├── test_instruction_rules.py
+│   ├── test_code_ast_rules.py
+│   ├── test_fixer.py
+│   
+├── .ape-policy.yml                  # Default organization policy file
+├── .pre-commit-hooks.yaml           # Local Git pre-commit hook manifest
+├── action.yml                       # Reusable GitHub Action manifest
+├── pyproject.toml                   # PEP 517 build config & binary entrypoint
+├── README.md                        # Documentation & setup guide
+└── LICENSE                         
+
 ### GitHub Action Integration
 
 Add APE to your repository as a workflow inside .github/workflows/ape-posture.yml:
