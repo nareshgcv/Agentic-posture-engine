@@ -18,7 +18,7 @@ APE scans agent definitions, instruction files, and source code tool execution p
 ## Installation
 
 ```bash
-git clone [https://github.com/your-org/agentic-posture-engine.git](https://github.com/your-org/agentic-posture-engine.git)
+https://github.com/nareshgcv/Agentic-posture-engine.git
 cd agentic-posture-engine
 pip install -r requirements.txt
 
