@@ -52,13 +52,13 @@ ape scan agent_config.yml --base base_agent_config.yml
 
 Output SARIF for the GitHub Security tab, JSON for scripting, and Markdown for PR comments:
 
-/*
+
 ape scan .mcp/config.json \
   --policy .ape-policy.yml \
   --output-sarif ape_results.sarif \
   --output-json ape_dump.json \
   --output-markdown ape_report.md
-*/
+
 
 **GitHub Action Integration**
 
@@ -96,10 +96,23 @@ jobs:
             --output-markdown ape_report.md
 
 
-**Default Security Rules**
-Rule ID   Severity    Scope   Description
+## Default Security Rules
 
-
+| Rule ID | Severity | Scope | Description |
+| :--- | :--- | :--- | :--- |
+| **APE-001** | `CRITICAL` | Config | Destructive tools (`exec_shell`, `file_write`, etc.) missing mandatory human approval flag (`require_human_approval`). |
+| **APE-002** | `CRITICAL` | Config | System execution tool (`exec_shell`, `bash`, `terminal`, `cmd`) is not marked as sandboxed. |
+| **APE-003** | `HIGH` | Config | Financial/Payout tool (`stripe_refund`, `bank_transfer`, etc.) missing maximum transaction limit (`max_limit`). |
+| **APE-004** | `HIGH` | Config | Database write tool lacking an `allowed_tables` scope whitelist or `read_only` flag. |
+| **APE-005** | `HIGH` | Config | Agent runtime missing a bounded `max_steps` execution limit. |
+| **APE-006** | `CRITICAL` | Config | Sub-agent spawning tool (`spawn_agent`, `delegate_task`, etc.) lacks human approval flag. |
+| **APE-101** | `CRITICAL` | Prompt | Prompt instruction explicitly waives or overrides security guardrails (`bypass security`, `ignore approval`). |
+| **APE-102** | `HIGH` | Prompt | Unconstrained command/terminal execution permission granted in prompt instruction (`run any command`). |
+| **APE-103** | `HIGH` | Prompt | Instruction explicitly waives human confirmation for sensitive tasks (`without human approval`). |
+| **APE-104** | `MEDIUM` | Prompt | Broad file or data access directive granted in prompt instruction (`read all files`, `delete all data`). |
+| **APE-201** | `CRITICAL` | AST (Py) | Dynamic Python shell execution call detected in code (`os.system`, `subprocess.run`, `eval`, `exec`). |
+| **APE-202** | `CRITICAL` | AST (JS/TS) | Node.js `child_process` execution detected in JavaScript/TypeScript (`child_process.exec`, `spawn`). |
+| **APE-203** | `HIGH` | AST (JS/TS) | Dynamic JavaScript `eval()` execution detected in code. |
 
 
 
