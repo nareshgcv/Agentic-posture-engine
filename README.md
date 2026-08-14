@@ -60,16 +60,16 @@ ape scan .mcp/config.json \
 
 **GitHub Action Integration**
 
-Add APE to your repository as a workflow inside .github/workflows/ape-posture.yml:
-name: Agentic Security Posture Check
+Add APE to your repository as a workflow inside
+.github/workflows/ape-posture.yml:
 
+name: Agentic Security Posture Check
 on:
   pull_request:
     paths:
       - '**/*mcp*.json'
       - '.cursorrules'
       - '**/agent_config.yml'
-
 jobs:
   ape-static-scan:
     runs-on: ubuntu-latest
@@ -103,6 +103,8 @@ Rule ID   Severity    Scope   Description
 
 **Customizing Policy**(.ape-policy.yml)
 Override default rule categories and framework aliases by providing a custom policy file:
+
+.ape-policy.yml
 
 destructive_tools:
   - "custom_db_drop"
