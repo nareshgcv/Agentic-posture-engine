@@ -4,12 +4,17 @@ Static linter, auto-fixer, and PR capability-delta analyzer for AI agent configu
 
 APE scans agent definitions, instruction files, and source code tool execution points to enforce security guardrails, detect privilege escalation, and compute permission deltas across pull requests—100% offline and air-gapped.
 
-Key Features
+**Key Features:**
+
 **Config & Instruction Coverage:**
 Scans structured configs (.mcp/config.json, CrewAI, AutoGen) alongside prompt instruction files (.cursorrules, .clauderules, .windsurfrules, .clinerules, system prompts).
+
 **AST Code Scanning:** Detects unconstrained shell and dynamic execution calls in Python (.py) and JavaScript/TypeScript (.js, .ts, .jsx, .tsx).  
+
 **PR Capability Delta Analysis:** Calculates permission and reachability diffs between a PR branch and base branch (--base).  
+
 **Offline-First:** Executable inner-loop tool with zero reliance on external LLM APIs.
+
 **Multi-Format Output:** Supports CLI Terminal output, raw JSON, SARIF v2.1.0 (for GitHub Code Scanning), and PR Markdown reports.
 
 Installation
