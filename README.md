@@ -15,7 +15,7 @@ Scans structured configs (.mcp/config.json, CrewAI, AutoGen) alongside prompt in
 
 **Offline-First:** Executable inner-loop tool with zero reliance on external LLM APIs.
 
-**Multi-Format Output:** Supports CLI Terminal output, raw JSON, SARIF v2.1.0 (for GitHub Code Scanning), and PR Markdown reports.
+**Multi-Format Output:** Supports CLI Terminal output, raw JSON, SARIF v1.0.0 (for GitHub Code Scanning), and PR Markdown reports.
 
 ### Installation
 ```bash
