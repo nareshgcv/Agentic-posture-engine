@@ -32,7 +32,7 @@ def test_export_sarif_empty_violations():
     sarif_json = export_sarif([])
     doc = json.loads(sarif_json)
 
-    assert doc["$schema"] == "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+    assert doc["$schema"] == "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-1.0.0.json"
     assert doc["version"] == "1.0.0"
 
     driver = doc["runs"][0]["tool"]["driver"]
