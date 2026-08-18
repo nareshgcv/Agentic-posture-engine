@@ -3,7 +3,7 @@
 # 🦍 Agentic Posture Engine (APE)
 ### Static Linter, Auto-Fixer, and PR Capability-Delta Analyzer for AI Agents
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg?style=flat-square)](https://www.python.org/downloads/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
@@ -40,7 +40,9 @@ Clone the repository and install locally:
 
 ```bash
 git clone [https://github.com/nareshgcv/Agentic-posture-engine.git](https://github.com/nareshgcv/Agentic-posture-engine.git)
+
 cd Agentic-posture-engine
+
 pip install -e .
 
 Basic Usage :-
