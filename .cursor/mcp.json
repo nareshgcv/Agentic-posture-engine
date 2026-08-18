@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "ape-linter-tool": {
+      "command": "python",
+      "args": [
+        "-m",
+        "src.ape_linter.mcp_server"
+      ],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    "postgres-db": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "${env:DATABASE_URL}"
+      ]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "${workspaceFolder}"
+      ]
+    }
+  }
+}
