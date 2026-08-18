@@ -9,7 +9,7 @@ description = "Static Linter, Auto-Fixer & PR Analyzer for AI Agent Security Pos
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "pyyaml>=6.0"
+    "ruamel.yaml>=0.19.1"
 ]
 
 [project.scripts]
