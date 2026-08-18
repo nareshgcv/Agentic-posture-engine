@@ -1,72 +1,85 @@
-# Agentic Posture Engine (APE)
+<div align="center">
 
-Static linter, auto-fixer, and PR capability-delta analyzer for AI agent configurations, Model Context Protocol (MCP) servers, prompt instructions (.cursorrules), and source code tool bindings.
+# 🦍 Agentic Posture Engine (APE)
+### Static Linter, Auto-Fixer, and PR Capability-Delta Analyzer for AI Agents
 
-APE scans agent definitions, instruction files, and source code tool execution points to enforce security guardrails, detect privilege escalation, and compute permission deltas across pull requests—100% offline and air-gapped.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg?style=flat-square)](https://www.python.org/downloads/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
-**Key Features:**
+*Static security linter, auto-fixer, and PR capability-delta analyzer for AI agent configurations, Model Context Protocol (MCP) servers, prompt instructions (`.cursorrules`), and source code tool bindings.*
 
-**Config & Instruction Coverage:**
-Scans structured configs (.mcp/config.json, CrewAI, AutoGen) alongside prompt instruction files (.cursorrules, .clauderules, .windsurfrules, .clinerules, system prompts).
+</div>
 
-**AST Code Scanning:** Detects unconstrained shell and dynamic execution calls in Python (.py) and JavaScript/TypeScript (.js, .ts, .jsx, .tsx).  
+---
 
-**PR Capability Delta Analysis:** Calculates permission and reachability diffs between a PR branch and base branch (--base).  
+## ⚡ Overview
 
-**Offline-First:** Executable inner-loop tool with zero reliance on external LLM APIs.
+**Agentic Posture Engine (APE)** scans agent definitions, instruction files, and source code tool execution points to enforce security guardrails, detect privilege escalation, and compute permission deltas across pull requests—**100% offline and air-gapped**.
 
-**Multi-Format Output:** Supports CLI Terminal output, raw JSON, SARIF v1.0.0 (for GitHub Code Scanning), and PR Markdown reports.
+As enterprise teams adopt AI agents, `.cursorrules`, and MCP server tools, traditional static analysis tools (like SonarQube or Bandit) remain blind to **Agentic Risks**. APE checks what static analysis misses: unconstrained execution loops, missing Human-in-the-Loop approvals, unsandboxed execution tools, and defensive prompt overrides.
 
-### Prerequisite and local Installation
+---
+
+## ✨ Key Features
+
+- 🧠 **Config & Instruction Coverage:** Scans structured configs (`.mcp/config.json`, CrewAI, AutoGen) alongside prompt instruction files (`.cursorrules`, `.clauderules`, `.windsurfrules`, `.clinerules`, system prompts) using paragraph-level context windows to prevent false positive negations.
+- 🌳 **AST Code Scanning:** Detects unconstrained shell and dynamic execution calls directly in Python (`.py`) and JavaScript/TypeScript (`.js`, `.ts`, `.jsx`, `.tsx`) source code.
+- 🔀 **PR Capability Delta Analysis:** Calculates permission and reachability diffs between a PR branch and a base branch (`--base`).
+- 🔒 **100% Offline & Air-Gapped:** Inner-loop executable tool with zero reliance on external LLM APIs or cloud connections.
+- 🔧 **Preservative Auto-Fixes (`ape fix`):** Safely updates non-compliant YAML/JSON files while preserving comments, inline notes, and formatting via `ruamel.yaml`.
+- 📊 **Multi-Format Reporting:** Supports interactive CLI Terminal output, raw JSON, OASIS SARIF v1.0.0 (for GitHub Code Scanning), and PR Markdown summaries.
+
+---
+
+## 🚀 Installation & Quickstart
+
+### Installation
+
+Clone the repository and install locally:
+
 ```bash
-[git clone https://github.com/nareshgcv/Agentic-posture-engine.git]
+git clone [https://github.com/nareshgcv/Agentic-posture-engine.git](https://github.com/nareshgcv/Agentic-posture-engine.git)
+cd Agentic-posture-engine
+pip install -e .
 
-cd agentic-posture-engine
+Basic Usage :-
+Run a security scan across your codebase:
 
-# Create & activate a virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+ape scan .
 
-Install requirements
-pip install -r requirements.txt
+Run PR capability-delta analysis against a base branch:
 
+ape scan . --base main
 
-pip install .
+Automatically apply fixable remediations:
 
-### CLI Usage
+ape fix .
 
-Interactive Setup
+Preview changes before writing to disk (Unified Diff):
 
-Initialize policy files and set up local pre-commit hooks:
-
-ape init
-
-### Basic Scan
-Scan a single configuration, prompt, directory, or source code file:
-
-ape scan agent_config.yml
-
-### Auto-Remediation
-Automatically fix fixable security violations in-place: 
+ape fix . --diff
 
 
-ape scan agent_config.yml --fix
+📊 Sample CLI Output
 
-**PR Branch Capability Diff**
-Compare a PR branch file against its base branch equivalent to detect newly granted permissions:
+🦍 APE Security Scan Results:
 
-ape scan agent_config.yml --base base_agent_config.yml
+[CRITICAL] APE-101 (instruction_prompt)
+  File: .cursorrules:14
+  Agent: system_prompt
+  Message: Instruction explicitly overrides or disables security guardrails.
+  Remediation: Remove prompt directives that bypass security checks.
+
+[HIGH] APE-001 (config)
+  File: config/agents.yaml:28
+  Agent: DatabaseAgent | Tool: execute_sql
+  Message: Dangerous execution tool is missing mandatory human approval flag.
+  Remediation: Set 'require_human_approval: true' in agent configuration.
+
+✖ Found 2 violations (1 Critical, 1 High). Run 'ape fix .' to resolve 1 auto-fixable issue.
 
 
-### Multi-Format Output Reports
-
-Generate SARIF reports for GitHub Security tab integration, JSON dumps for custom scripting, and Markdown reports for PR comments:
-
-ape scan .cursor/rules/config.json \
-  --policy .ape-policy.yml \
-  --output-sarif ape_results.sarif \
-  --output-json ape_dump.json \
-  --output-markdown ape_report.md
 
 ### Project structure
 
