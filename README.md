@@ -114,7 +114,6 @@ on:
   pull_request:
     paths:
       - '**/*mcp*.json'
-      - '.cursorrules'
       - '**/agent_config.yml'
 
 jobs:
