@@ -1,0 +1,31 @@
+
+{
+  "mcpServers": {
+    "filesystem-server": {
+      "command": "node",
+      "args": ["/usr/local/bin/mcp-fs.js"],
+      "sandboxed": true,
+      "tools": [
+        {
+          "name": "file_write",
+          "require_human_approval": true,
+          "read_only": false
+        }
+      ]
+    },
+    "database-server": {
+      "command": "python",
+      "args": ["-m", "mcp_db"],
+      "sandboxed": false,
+      "tools": [
+        {
+          "name": "execute_sql",
+          "read_only": false,
+          "allowed_tables": ["users", "orders", "logs"],
+          "require_human_approval": true
+        }
+      ]
+    }
+  }
+}
+
