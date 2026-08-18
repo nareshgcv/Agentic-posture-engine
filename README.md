@@ -17,7 +17,7 @@ Scans structured configs (.mcp/config.json, CrewAI, AutoGen) alongside prompt in
 
 **Multi-Format Output:** Supports CLI Terminal output, raw JSON, SARIF v1.0.0 (for GitHub Code Scanning), and PR Markdown reports.
 
-### Installation
+### Prerequisite and local Installation
 ```bash
 [git clone https://github.com/nareshgcv/Agentic-posture-engine.git]
 
@@ -26,6 +26,10 @@ cd agentic-posture-engine
 # Create & activate a virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+Install requirements
+pip install -r requirements.txt
+
 
 pip install .
 
