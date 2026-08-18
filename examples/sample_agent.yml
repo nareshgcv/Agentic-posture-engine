@@ -1,0 +1,37 @@
+# Sample multi-agent configuration testing APE rules and inline suppressions
+agents:
+  DevOpsAgent:
+    role: "System Administrator"
+    max_steps: 15
+    tools:
+      # APE-001 & APE-002 Trigger (Destructive + Unsandboxed Shell)
+      - name: exec_shell
+        sandboxed: false
+        require_human_approval: false
+
+      # APE-004 Trigger (SQL write access without table whitelist)
+      - name: execute_sql
+        read_only: false
+
+  BillingAgent:
+    role: "Financial Coordinator"
+    max_steps: 10
+    tools:
+      # APE-001 & APE-003 Compliant (Has HITL and max transaction limit)
+      - name: stripe_refund
+        human_approval: true
+        max_limit: 500
+
+      # APE-003 Trigger (Financial tool missing max_limit)
+      - name: bank_transfer
+        require_human_approval: true
+
+  SupervisorAgent:
+    role: "Orchestrator"
+    # APE-005 Trigger (Missing max_steps parameter)
+    
+    tools:
+      # APE-006 Suppressed (Sub-agent spawning with inline rule suppression)
+      - name: spawn_agent
+        ape_ignore: ["APE-006"]
+
