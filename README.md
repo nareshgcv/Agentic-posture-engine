@@ -23,6 +23,10 @@ Scans structured configs (.mcp/config.json, CrewAI, AutoGen) alongside prompt in
 
 cd agentic-posture-engine
 
+# Create & activate a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
 pip install .
 
 ### CLI Usage
