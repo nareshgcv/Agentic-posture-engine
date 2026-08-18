@@ -1,0 +1,23 @@
+---
+description: Guidance for using MCP (Model Context Protocol) tools in Agentic Posture Engine
+globs: **/*
+alwaysApply: true
+---
+
+# MCP (Model Context Protocol) Tool Usage Guidelines
+
+When interacting with connected MCP tools during development or automated code generation, strictly adhere to the following rules:
+
+## 1. Tool Discovery & Execution Strategy
+- **Scan Before Action**: Check available MCP tools using `tools/list` before attempting manual scripting or CLI execution.
+- **APE Linter MCP Integration**: Use `ape-linter-tool` via MCP to validate agent configuration files (`.json`, `.yaml`) or prompt files (`.cursorrules`, `.clauderules`) in real time.
+- **Minimal Mutation**: Prefer read-only MCP operations (`get_*`, `query_*`, `inspect_*`) during early exploratory phases.
+
+## 2. Safety & Human-in-the-Loop (HITL) Policy
+- **Destructive Tools Require Confirmation**: Never execute MCP tools that alter database schemas, delete filesystem assets, or trigger external write actions without explicit user confirmation in chat.
+- **Sandboxed Execution**: Any custom MCP server registered in `.cursor/mcp.json` must be executed inside isolated sub-processes or container paths when handling untrusted user input.
+
+## 3. Database & System Interactions via MCP
+- When querying local databases or server APIs via MCP adapters:
+  - Avoid raw `DROP` or `TRUNCATE` commands.
+  - Limit returned query rows to prevent context window overflow (`LIMIT 50`).
