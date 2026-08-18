@@ -54,7 +54,7 @@ ape scan agent_config.yml --base base_agent_config.yml
 
 Generate SARIF reports for GitHub Security tab integration, JSON dumps for custom scripting, and Markdown reports for PR comments:
 
-ape scan .mcp/config.json \
+ape scan .cursor/rules/config.json \
   --policy .ape-policy.yml \
   --output-sarif ape_results.sarif \
   --output-json ape_dump.json \
