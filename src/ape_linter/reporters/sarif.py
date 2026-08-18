@@ -75,7 +75,7 @@ def export_sarif(violations: List[SecurityViolation]) -> str:
                     "driver": {
                         "name": "APE-Linter",
                         "semanticVersion": getattr(__version__, "__version__", "1.0.0"),
-                        "informationUri": "https://github.com/ape-linter/ape-linter",
+                        "informationUri": "https://github.com/nareshgcv/Agentic-posture-engine/tree/main/src/ape-linter/ape-linter",
                         "rules": list(rules_map.values()),
                     }
                 },
