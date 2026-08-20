@@ -155,21 +155,23 @@ def compute_blast_radius(
 
     for cap in capabilities:
         c_type = cap.cap_type.lower()
-        if "shell" in c_type or "exec" in c_type:
+        
+        # Exact word match prevents "execute_sql" from matching "exec"
+        if re.search(r"\b(shell|exec|bash|terminal|cmd|code_interpreter)\b", c_type):
             impact_zones.add("Host System / OS Infrastructure")
             risk_score = "CRITICAL"
-        elif "stripe" in c_type or "payout" in c_type or "financial" in c_type:
+        elif any(kw in c_type for kw in ["stripe", "payout", "financial"]):
             impact_zones.add("Financial & Payment Services")
             if risk_score != "CRITICAL":
                 risk_score = "HIGH"
-        elif "sql" in c_type or "db" in c_type:
+        elif any(kw in c_type for kw in ["sql", "db", "database"]):
             impact_zones.add("Data Store / Primary Database")
             if risk_score not in {"CRITICAL", "HIGH"}:
                 risk_score = "MEDIUM"
 
     return {
         "level": risk_score,
-        "impact_zones": list(impact_zones)
+        "impact_zones": sorted(list(impact_zones))
         if impact_zones
         else ["Isolated Workspace"],
     }
