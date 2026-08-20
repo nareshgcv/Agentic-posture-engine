@@ -70,11 +70,18 @@ class Capability:
 
 def find_line_number(content: str, pattern: str) -> int:
     """Finds the 1-based line number for a substring or pattern in raw file content."""
+    if not content or not pattern:
+        return 1
+    
+    # Safe literal string matching first
     lines = content.splitlines()
+    target = str(pattern).lower()
     for idx, line in enumerate(lines, start=1):
-        if pattern.lower() in line.lower():
+        if target in line.lower():
             return idx
+            
     return 1
+
 
 
 def check_inline_suppression(
