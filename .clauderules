@@ -1,8 +1,8 @@
 # Agentic Posture Engine (APE) - Claude Code Directives
 
 Repository context: https://github.com/nareshgcv/Agentic-posture-engine
-Linter Module: src/ape-linter/ape-linter
-Documentation & Rules URI: https://github.com/nareshgcv/Agentic-posture-engine/tree/main/src/ape-linter
+Linter Module: src/ape_linter
+Documentation & Rules URI: https://github.com/nareshgcv/Agentic-posture-engine/tree/main/src/ape_linter
 
 You are working on APE (Agentic Posture Engine), an automated security scanner that analyzes agent configurations (.json, .yaml), instruction prompts (.cursorrules, .clauderules), and source code ASTs (Python, JS/TS) for safe deployment.
 
