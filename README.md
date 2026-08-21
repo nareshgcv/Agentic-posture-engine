@@ -42,7 +42,6 @@ ape fix . --diff
 
 Run PR capability-delta analysis:
 
-Bash
 ape scan . --base main
 
 Run PR capability-delta analysis against a base branch:
