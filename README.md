@@ -60,8 +60,8 @@ Supported Frameworks & Formats
 
 ##Key Features
 
-Config & Instruction Scanning — Detects risky tools and missing guardrails in agent configs and prompt files
-AST Code Scanning — Finds unconstrained os.system, subprocess, eval, child_process, etc.
+** Config & Instruction Scanning **— Detects risky tools and missing guardrails in agent configs and prompt files
+**AST Code Scanning ** — Finds unconstrained os.system, subprocess, eval, child_process, etc.
 PR Capability Delta — Shows what new permissions a pull request introduces
 Preservative Auto-Fix — Safely updates YAML/JSON while keeping comments and formatting
 Multiple Report Formats — CLI, JSON, SARIF (GitHub Code Scanning), and Markdown
