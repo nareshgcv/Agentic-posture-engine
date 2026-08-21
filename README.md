@@ -45,9 +45,6 @@ Preview changes before writing to disk (Unified Diff):
 
 ape fix . --diff
 
-Supported Frameworks & Formats
-
-## Supported Frameworks & Formats
 ## Supported Frameworks & Formats
 
 | Type                      | Supported                                              |
@@ -59,14 +56,16 @@ Supported Frameworks & Formats
 | **IDE Rules**             | `.cursorrules`, `.clauderules`, `.windsurfrules`, `.clinerules` |
 | **Source Code**           | Python (`.py`) and JavaScript/TypeScript (`.js`, `.ts`, `.jsx`, `.tsx`) |
 
-##Key Features
+## Key Features
 
-** Config & Instruction Scanning **— Detects risky tools and missing guardrails in agent configs and prompt files
-**AST Code Scanning ** — Finds unconstrained os.system, subprocess, eval, child_process, etc.
-PR Capability Delta — Shows what new permissions a pull request introduces
-Preservative Auto-Fix — Safely updates YAML/JSON while keeping comments and formatting
-Multiple Report Formats — CLI, JSON, SARIF (GitHub Code Scanning), and Markdown
-100% Offline — No external LLM or cloud dependency
+| Feature                        | Description                                                                 |
+|--------------------------------|-----------------------------------------------------------------------------|
+| **Config & Instruction Scanning** | Detects risky tools and missing guardrails in agent configs and prompt files |
+| **AST Code Scanning**          | Finds unconstrained `os.system`, `subprocess`, `eval`, `child_process`, etc. |
+| **PR Capability Delta**        | Shows what new permissions a pull request introduces                        |
+| **Preservative Auto-Fix**      | Safely updates YAML/JSON while keeping comments and formatting              |
+| **Multiple Report Formats**    | CLI, JSON, SARIF (GitHub Code Scanning), and Markdown                       |
+| **100% Offline**               | No external LLM or cloud dependency                                         |
 
 📊 Sample CLI Output
 
