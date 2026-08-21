@@ -112,10 +112,14 @@ def normalize_agents(data: Dict[str, Any], raw_content: str = "") -> Dict[str, D
                 if isinstance(server_cfg, dict):
                     agents[server_name] = {
                         "name": server_name,
-                        "tools": server_cfg.get("tools", []),
+                        "type": "mcp_server",
+                        "command": server_cfg.get("command"),
+                        "args": server_cfg.get("args", []),
+                        "url": server_cfg.get("url"),  # For SSE transport
+                        "tools": server_cfg.get("tools", []), # Fallback for static lists
                         "sandboxed": server_cfg.get("sandboxed", False),
                         "env": server_cfg.get("env", {}),
-                    }
+                     }
 
         # 3. AutoGen Configs (Support for llm_config and nested tools)
         if any(k in data for k in ("config_list", "llm_config", "human_input_mode")):
