@@ -48,15 +48,16 @@ ape fix . --diff
 Supported Frameworks & Formats
 
 ## Supported Frameworks & Formats
+## Supported Frameworks & Formats
 
-| Type | Supported |
-|------|-----------|
-| **MCP** | `mcpServers` / `mcp_servers` configs |
-| **CrewAI** | YAML agent definitions |
-| **AutoGen** | Agent configs with `llm_config`, `human_input_mode` |
-| **LangChain / LangGraph** | Nodes, graphs, agent schemas |
-| **IDE Rules** | `.cursorrules`, `.clauderules`, `.windsurfrules`, `.clinerules` |
-| **Source Code** | Python (`.py`) and JavaScript/TypeScript (`.js`, `.ts`, `.jsx`, `.tsx`) |
+| Type                      | Supported                                              |
+|---------------------------|--------------------------------------------------------|
+| **MCP**                   | `mcpServers` / `mcp_servers` configs                   |
+| **CrewAI**                | YAML agent definitions                                 |
+| **AutoGen**               | Agent configs with `llm_config`, `human_input_mode`    |
+| **LangChain / LangGraph** | Nodes, graphs, agent schemas                           |
+| **IDE Rules**             | `.cursorrules`, `.clauderules`, `.windsurfrules`, `.clinerules` |
+| **Source Code**           | Python (`.py`) and JavaScript/TypeScript (`.js`, `.ts`, `.jsx`, `.tsx`) |
 
 ##Key Features
 
