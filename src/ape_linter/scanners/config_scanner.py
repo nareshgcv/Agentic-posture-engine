@@ -18,12 +18,12 @@ from ape_linter.core import (
 
 SECRET_REGEX = re.compile(
     r"("
-    r"sk-proj-[A-Za-z0-9_\-]{40,}"        # Modern OpenAI Project Keys
-    r"|sk-ant-[A-Za-z0-9_\-]{40,}"       # Anthropic API Keys
+    r"sk-proj-[A-Za-z0-9_\-]{20,}"        # Modern OpenAI Project Keys
+    r"|sk-ant-[A-Za-z0-9_\-]{20,}"       # Anthropic API Keys
     r"|github_pat_[A-Za-z0-9_]{22,}"    # GitHub Fine-Grained PATs
     r"|AIza[0-9A-Za-z-_]{35}"           # Google API Keys
     r"|xox[b-aprs]-[0-9A-Za-z-]{10,}"   # Slack Tokens
-    r"|sk-[A-Za-z0-9]{32,}"              # Legacy OpenAI / Generic Keys
+    r"|sk-[A-Za-z0-9]{20,}"              # Legacy OpenAI / Generic Keys
     r"|AKIA[0-9A-Z]{16}"                # AWS Access Key ID
     r")",
     re.IGNORECASE,
