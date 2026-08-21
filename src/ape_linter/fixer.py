@@ -158,4 +158,4 @@ def apply_auto_fixes(
     except Exception as e:
         print(f"Error applying auto-fix on {file_path}: {e}")
 
-    return 0, "”
+    return 0, ""
