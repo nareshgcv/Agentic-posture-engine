@@ -28,22 +28,28 @@ APE detects what they miss:
 ```bash
 pip install agentic-posture-engine
 
-Basic Usage :-
-Run a security scan across your codebase:
+Scan your project:
 
 ape scan .
+
+Apply automatic fixes:
+
+ape fix .
+
+Preview fixes without writing to disk:
+
+ape fix . --diff
+
+Run PR capability-delta analysis:
+
+Bash
+ape scan . --base main
 
 Run PR capability-delta analysis against a base branch:
 
 ape scan . --base main
 
-Automatically apply fixable remediations:
 
-ape fix .
-
-Preview changes before writing to disk (Unified Diff):
-
-ape fix . --diff
 
 ## Supported Frameworks & Formats
 
