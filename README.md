@@ -1,49 +1,32 @@
-<div align="center">
-
 # 🦍 Agentic Posture Engine (APE)
-### Static Linter, Auto-Fixer, and PR Capability-Delta Analyzer for AI Agents
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square)](LICENSE)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg?style=flat-square)](https://www.python.org/downloads/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
+**Static Linter, Auto-Fixer, and PR Capability-Delta Analyzer for AI Agents**
 
-*Static security linter, auto-fixer, and PR capability-delta analyzer for AI agent configurations, Model Context Protocol (MCP) servers, prompt instructions (`.cursorrules`), and source code tool bindings.*
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/nareshgcv/Agentic-posture-engine/pulls)
 
-</div>
-
----
-
-## ⚡ Overview
-
-**Agentic Posture Engine (APE)** scans agent definitions, instruction files, and source code tool execution points to enforce security guardrails, detect privilege escalation, and compute permission deltas across pull requests—**100% offline and air-gapped**.
-
-As enterprise teams adopt AI agents, `.cursorrules`, and MCP server tools, traditional static analysis tools (like SonarQube or Bandit) remain blind to **Agentic Risks**. APE checks what static analysis misses: unconstrained execution loops, missing Human-in-the-Loop approvals, unsandboxed execution tools, and defensive prompt overrides.
+> Static security linter, auto-fixer, and PR capability-delta analyzer for AI agent configurations, Model Context Protocol (MCP) servers, prompt instructions (`.cursorrules`), and source code tool bindings — **100% offline and air-gapped**.
 
 ---
 
-## ✨ Key Features
+## Why APE?
 
-- 🧠 **Config & Instruction Coverage:** Scans structured configs (`.mcp/config.json`, CrewAI, AutoGen) alongside prompt instruction files (`.cursorrules`, `.clauderules`, `.windsurfrules`, `.clinerules`, system prompts) using paragraph-level context windows to prevent false positive negations.
-- 🌳 **AST Code Scanning:** Detects unconstrained shell and dynamic execution calls directly in Python (`.py`) and JavaScript/TypeScript (`.js`, `.ts`, `.jsx`, `.tsx`) source code.
-- 🔀 **PR Capability Delta Analysis:** Calculates permission and reachability diffs between a PR branch and a base branch (`--base`).
-- 🔒 **100% Offline & Air-Gapped:** Inner-loop executable tool with zero reliance on external LLM APIs or cloud connections.
-- 🔧 **Preservative Auto-Fixes (`ape fix`):** Safely updates non-compliant YAML/JSON files while preserving comments, inline notes, and formatting via `ruamel.yaml`.
-- 📊 **Multi-Format Reporting:** Supports interactive CLI Terminal output, raw JSON, OASIS SARIF v1.0.0 (for GitHub Code Scanning), and PR Markdown summaries.
+Traditional static analysis tools (SonarQube, Bandit, etc.) are blind to **Agentic Risks**.
+
+APE detects what they miss:
+- Missing Human-in-the-Loop approvals
+- Unsandboxed execution tools
+- Unconstrained agent loops
+- Dangerous prompt overrides
+- Privilege escalation in agent configs
 
 ---
 
-## 🚀 Installation & Quickstart
-
-### Installation
-
-Clone the repository and install locally:
+## Quick Start
 
 ```bash
-git clone [https://github.com/nareshgcv/Agentic-posture-engine.git](https://github.com/nareshgcv/Agentic-posture-engine.git)
-
-cd Agentic-posture-engine
-
-pip install -e .
+pip install agentic-posture-engine
 
 Basic Usage :-
 Run a security scan across your codebase:
@@ -62,6 +45,27 @@ Preview changes before writing to disk (Unified Diff):
 
 ape fix . --diff
 
+Supported Frameworks & Formats
+
+## Supported Frameworks & Formats
+
+| Type | Supported |
+|------|-----------|
+| **MCP** | `mcpServers` / `mcp_servers` configs |
+| **CrewAI** | YAML agent definitions |
+| **AutoGen** | Agent configs with `llm_config`, `human_input_mode` |
+| **LangChain / LangGraph** | Nodes, graphs, agent schemas |
+| **IDE Rules** | `.cursorrules`, `.clauderules`, `.windsurfrules`, `.clinerules` |
+| **Source Code** | Python (`.py`) and JavaScript/TypeScript (`.js`, `.ts`, `.jsx`, `.tsx`) |
+
+##Key Features
+
+Config & Instruction Scanning — Detects risky tools and missing guardrails in agent configs and prompt files
+AST Code Scanning — Finds unconstrained os.system, subprocess, eval, child_process, etc.
+PR Capability Delta — Shows what new permissions a pull request introduces
+Preservative Auto-Fix — Safely updates YAML/JSON while keeping comments and formatting
+Multiple Report Formats — CLI, JSON, SARIF (GitHub Code Scanning), and Markdown
+100% Offline — No external LLM or cloud dependency
 
 📊 Sample CLI Output
 
