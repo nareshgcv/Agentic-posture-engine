@@ -1,5 +1,5 @@
 """
-Main CLI Entrypoint for APE scanner (ape init / ape check / ape scan / ape fix).
+Main CLI Entrypoint for APE scanner (ape init / ape scan / ape fix).
 """
 
 import argparse
